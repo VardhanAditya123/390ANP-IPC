@@ -16,6 +16,7 @@ class client(Node):
      
     def receive(self):
         self.proxy = xmlrpc.client.ServerProxy("http://"+ self.host  +":"+str(self.portno)+"/")
+        print("Received from server")
         with open("received_img.jpg", "wb") as handle:
             handle.write((self.proxy.image()).data)  
  
